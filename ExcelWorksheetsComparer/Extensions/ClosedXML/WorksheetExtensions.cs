@@ -1,5 +1,7 @@
 ﻿using ClosedXML.Excel;
 
+namespace ExcelWorksheetsComparer.Extensions.ClosedXML;
+
 internal static class WorksheetExtensions
 {
     internal static IEnumerable<IXLAddress> EnumerateDifferentCellAddress(this IXLWorksheet ws1, IXLWorksheet ws2)
@@ -33,7 +35,7 @@ internal static class WorksheetExtensions
     internal static IOrderedEnumerable<int> EnumerateDifferentRowNumber(this IXLWorksheet ws1, IXLWorksheet ws2)
     {
         // 先頭行は 1 になります
-        return EnumerateDifferentCellAddress(ws1, ws2)
+        return ws1.EnumerateDifferentCellAddress(ws2)
             .Select(x => x.RowNumber)
             .Distinct().Order();
     }

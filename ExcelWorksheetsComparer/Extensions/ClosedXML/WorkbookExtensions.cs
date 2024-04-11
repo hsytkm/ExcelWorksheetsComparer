@@ -1,5 +1,7 @@
 ﻿using ClosedXML.Excel;
 
+namespace ExcelWorksheetsComparer.Extensions.ClosedXML;
+
 internal static class WorkbookExtensions
 {
     // 指定シートを選択状態にします
